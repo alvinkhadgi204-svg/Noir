@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--noir-font);
+}
+
+:root {
+  --noir-base: #0a0a0a;
+  --noir-surface: #1a1a1a;
+  --noir-elevated: #2a2a2a;
+  --noir-accent: #22c55e;
+  --noir-accent-rgb: 34, 197, 94;
+  --noir-font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --noir-font-scale: 1;
+  --noir-radius: 12px;
+  --noir-btn-radius: 8px;
+  --noir-blur: 16px;
+  --noir-motion-scale: 1;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  height: 100dvh;
+  background-color: var(--noir-base);
+  color: #f4f4f5;
+  font-family: var(--noir-font);
+  font-size: calc(15px * var(--noir-font-scale));
+  letter-spacing: 0.012em;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.noir-app-shell {
+  height: 100%;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.noir-card {
+  background-color: var(--noir-surface);
+  border-radius: var(--noir-radius);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.22s ease, box-shadow 0.28s ease, background-color 0.22s ease;
+}
+
+.noir-card:hover {
+  border-color: rgba(var(--noir-accent-rgb), 0.22);
+  box-shadow: 0 8px 30px -12px rgba(var(--noir-accent-rgb), 0.14);
+}
+
+.noir-elevated {
+  background-color: var(--noir-elevated);
+  border-radius: var(--noir-radius);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.noir-btn {
+  border-radius: var(--noir-btn-radius);
+  transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.22s ease, opacity 0.18s ease;
+}
+
+.noir-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.noir-glass {
+  /* Fallback for older mobile browsers without color-mix() */
+  background-color: rgba(24, 24, 27, 0.9);
+  background-color: color-mix(in srgb, var(--noir-surface) 82%, transparent);
+  -webkit-backdrop-filter: blur(var(--noir-blur));
+  backdrop-filter: blur(var(--noir-blur));
+}
+
+@keyframes noirEqBounce {
+  0%, 100% {
+    transform: scaleY(0.26);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.noir-eq-bar {
+  transform-origin: bottom;
+  animation: noirEqBounce 0.78s ease-in-out infinite;
+}
+
+@keyframes auroraBreath {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.08) translate3d(2%, -2%, 0);
+    opacity: 0.75;
+  }
+}
+
+.aurora-study-breath {
+  animation: auroraBreath 11s ease-in-out infinite;
+}
+
+@keyframes vinylWobble {
+  0%, 100% {
+    transform: rotate(-1.5deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.5deg) scale(1.015);
+  }
+}
+
+.aurora-vinyl-wobble {
+  animation: vinylWobble 2.8s ease-in-out infinite;
+}
+
+.aurora-crt-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0) 2px,
+    rgba(0, 0, 0, 0.26) 3px,
+    rgba(0, 0, 0, 0.26) 4px
+  );
+}
+
+/* Subtle custom scrollbars for matte dark aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,30 @@
+# Maintainer: Aurora Vibes <support@auroravibes.app>
+pkgname=aurora-vibes-bin
+pkgver=2.5.0
+pkgrel=1
+pkgdesc="Aurora Vibes music streaming, Calm Study fullscreen & local audio studio"
+arch=('x86_64' 'aarch64')
+url="https://ais-pre-j3xyu7jjrknrb77qfr3zsm-274530213594.asia-northeast1.run.app"
+license=('MIT')
+depends=('electron' 'xdg-utils')
+source=("aurora-vibes.desktop")
+sha256sums=('SKIP')
+
+package() {
+  install -dm755 "${pkgdir}/usr/bin"
+  install -dm755 "${pkgdir}/usr/share/applications"
+  install -dm755 "${pkgdir}/usr/share/pixmaps"
+
+  cat << 'EOF' > "${pkgdir}/usr/bin/aurora-vibes"
+#!/usr/bin/env bash
+URL="https://ais-pre-j3xyu7jjrknrb77qfr3zsm-274530213594.asia-northeast1.run.app"
+for bin in chromium google-chrome-stable brave microsoft-edge-stable; do
+  if command -v "$bin" >/dev/null 2>&1; then
+    exec "$bin" --app="$URL" --class="AuroraVibes" --window-size=1280,840 "$@"
+  fi
+done
+exec xdg-open "$URL"
+EOF
+  chmod +x "${pkgdir}/usr/bin/aurora-vibes"
+  install -Dm644 "${srcdir}/aurora-vibes.desktop" "${pkgdir}/usr/share/applications/aurora-vibes.desktop"
+}

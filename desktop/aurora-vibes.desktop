@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Aurora Vibes
+Comment=Music Streaming, Calm Study Mode & Local Audio Studio
+Exec=aurora-vibes
+Icon=aurora-vibes
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Music;Player;
+StartupWMClass=AuroraVibes

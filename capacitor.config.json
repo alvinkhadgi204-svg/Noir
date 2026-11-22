@@ -1,0 +1,11 @@
+{
+  "appId": "app.auroravibes.audio",
+  "appName": "Aurora Vibes",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#0a0a0a"
+  }
+}

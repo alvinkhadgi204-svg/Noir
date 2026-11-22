@@ -1,0 +1,37 @@
+{
+  "name": "aurora-vibes-desktop",
+  "version": "2.5.0",
+  "description": "Aurora Vibes desktop audio studio for Arch Linux, Debian/Ubuntu, macOS, and Windows",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "build:arch": "electron-builder --linux pacman AppImage",
+    "build:debian": "electron-builder --linux deb",
+    "build:linux": "electron-builder --linux pacman deb AppImage",
+    "build:mac": "electron-builder --mac dmg",
+    "build:win": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "app.auroravibes.desktop",
+    "productName": "Aurora Vibes",
+    "icon": "../public/pwa-512x512.png",
+    "linux": {
+      "target": ["pacman", "deb", "AppImage"],
+      "category": "AudioVideo",
+      "icon": "../public/pwa-512x512.png"
+    },
+    "mac": {
+      "target": ["dmg"],
+      "category": "public.app-category.music",
+      "icon": "../public/pwa-512x512.png"
+    },
+    "win": {
+      "target": ["nsis"],
+      "icon": "../public/pwa-512x512.png"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Noir",
+  "description": "Matte black universal music streaming and local audio studio with live visualizers, gapless crossfade, synced lyrics, and full theme customization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
